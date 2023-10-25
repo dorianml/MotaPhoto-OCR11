@@ -89,7 +89,6 @@ while (have_posts()) :
 					'orderby' => 'date',
 					'order' => 'ASC',
 				));
-				$current_post_position = 0;
 
 				if ($related_query->have_posts()) { ?>
 
@@ -99,7 +98,6 @@ while (have_posts()) :
 
 
 							<?php
-							$current_post_position++;
 							$related_query->the_post(); ?>
 
 							<div class="grid-item">
@@ -115,7 +113,7 @@ while (have_posts()) :
 				}
 				?>
 				<div class="navigation">
-				<?php posts_nav_link(' • ','« Go forward in time','Go back in time »'); ?>
+					<?php posts_nav_link(' • ', '« Go forward in time', 'Go back in time »'); ?>
 				</div>
 
 			</div>
