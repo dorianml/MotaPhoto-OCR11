@@ -2,7 +2,7 @@ body {
   font-family: "Space Mono", monospace;
   margin: 0;
   padding: 0;
-  padding: 0px 70px 0px 70px;
+  /* padding: 0px 70px 0px 70px; */
 }
 
 body a {
@@ -286,6 +286,71 @@ div.contact, textarea, input {
 .row.body {
   padding: .5em 2.5em 1em;
 }
+
+.related-posts-grid {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  width: 40%; /* Each post takes 40% of the container's width */
+  margin-bottom: 20px; /* Add spacing between posts */
+  text-align: center; /* Center the content within the grid item */
+}
+
+.grid-item img {
+  width: 90%;
+  height: auto; /* Each post takes 90% of the container's width */
+  margin: 0 auto; /* Center the image within the grid item */
+}
+
+.grid-item-index img {
+  width: 700px;
+  height: 700px;
+  object-fit: cover;
+}
+
+.grid-related-item {
+  height: 500px;
+  width: 500px;
+  margin-bottom: 20px; /* Add spacing between posts */
+  text-align: center; /* Center the content within the grid item */
+  object-fit: cover;
+}
+.grid-related-item {
+  height: 500px;
+  width: 500px;
+  position: relative; /* Needed for absolute positioning of the image */
+  margin-bottom: 20px; /* Add spacing between posts */
+  text-align: center; /* Center the content within the grid item */
+  overflow: hidden; /* Clip any image overflow */
+}
+
+.grid-related-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust as needed, e.g., 'contain' to fit within the square */
+  top: 0;
+  left: 0;
+  transform: translate(0%, 0%); /* Center the image within the square */
+}
+.morePost {
+  text-align: center;
+}
+
+.morePost img {
+  width: 700px;
+  height: 700px;
+  object-fit: cover;
+}
+
+.btn__wrapper {
+  text-align: center;
+}
+
 
 div.contact-elements p.pull-right {
   float: right;
