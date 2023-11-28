@@ -1,0 +1,121 @@
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.406);
+  z-index: 100;
+  animation: ligthboxIn -5s;
+  transition: 1s;
+}
+.lightbox__container img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lightbox__container {
+  margin-left: 50px;
+  margin-right: 50px;
+  z-index: 400;
+  opacity: 1;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+
+.lightbox__next,
+.lightbox__prev {
+  border: none;
+  z-index: 101;
+  position: fixed;
+  top: 50%;
+  cursor: pointer;
+}
+
+.lightbox__next:hover,
+.lightbox__prev:hover {
+  opacity: 1;
+}
+
+.lightbox__prev {
+  right: auto;
+  left: 0;
+}
+.lightbox__prev {
+  left: auto;
+  right: 0;
+}
+
+.lightbox__close {
+  background-image: url("images/cross.svg");
+  background-repeat: no-repeat;
+  border: none;
+  width: 30px;
+  height: 30px;
+  z-index: 110;
+  position: fixed;
+  top: 10px; /* Adjust the top distance as needed */
+  right: 10px; /* Adjust the right distance as needed */
+  cursor: pointer;
+  text-indent: -3000px;
+  background-color: transparent; /* Add this line to set the background to transparent */
+}
+
+.lightbox__loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  /* opacity: .5; */
+  z-index: 300;
+}
+
+/* Apply the SVG as a background-image */
+.lightbox__loader::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38"><defs><linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a"><stop stop-color="%23fff" stop-opacity="0" offset="0%"/><stop stop-color="%23fff" stop-opacity=".631" offset="63.146%"/><stop stop-color="%23fff" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)"><path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(%23a)" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="0.9s" repeatCount="indefinite" /></path><circle fill="%23fff" cx="36" cy="18" r="1"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="0.9s" repeatCount="indefinite" /></circle></g></g></svg>')
+    no-repeat center center;
+  background-size: contain; /* or cover, depending on your design preference */
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.preview .focusIcon {
+  visibility: hidden;
+  position: absolute;
+  z-index: 200;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  width: 60px; /* Adjust the size as needed */
+  height: 60px; /* Adjust the size as needed */
+  background-color: red;
+}
+
+.grid-item-index:hover .focusIcon {
+  visibility: visible;
+}
+/* 
+  
+    .grid-item-index:hover + .focusIcon {
+      visibility: visible; /* Set to visible when .grid-item-index is hovered */

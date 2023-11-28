@@ -39,29 +39,66 @@ global $wp_query; ?>
         ?>
         <!-- <img src="<?php echo get_stylesheet_directory_uri() . '/images/Photos NMota/nathalie-11.jpeg'; ?>  " alt="party-photo-by-nathalie"> -->
     </div>
+    <div class="filterNav">
+
+        <?php
+        // Get categories
+        $categories = get_terms('categ', array('hide_empty' => false));
+        // Get formats
+        $formats = get_terms('format', array('hide_empty' => false));
+        ?>
+        <div class="filterTab">
+            <span class="x-split-button">
+                <button class="x-button x-button-main">&#10070;CATEGORIE</button>
+                <button class="x-button x-button-drop">&#9660;</button>
+                <ul class="x-button-drop-menu">
+                    <?php
+                    foreach ($categories as $category) {
+                        echo '<li><a class="ajax-category-link" data-category-id="' . $category->term_id . '" id="ajax_call">' . $category->name . '</a></li>';
+                    }
+                    ?>
+                </ul>
+
+            </span>
+        </div>
+        <div class="filterTab">
+            <span class="x-split-button3">
+                <button class="x-button3 x-button3-main">&#10070; TRIER PAR</button>
+                <button class="x-button3 x-button3-drop">&#9660;</button>
+                <ul class="x-button3-drop-menu">
+                    <li><a class='ajax_time_link' href="?orderby=date&order=asc" data-order="asc">OLDEST</a></li>
+                    <li><a class='ajax_time_link' href="?orderby=date&order=desc" data-order="desc">NEWEST</a></li>
+                </ul>
+            </span>
+        </div>
+        <div class="filterTab">
+            <span class="x-split-button2">
+                <button class="x-button2 x-button2-main">&#10070; FORMAT</button>
+                <button class="x-button2 x-button2-drop">&#9660;</button>
+                <ul class="x-button2-drop-menu">
+                    <?php
+                    foreach ($formats as $format) {
+                        echo '<li><a class="ajax-format-link" data-format-id="' . $format->term_id . '">' . $format->name . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </span>
+        </div>
+    </div>
+
     <div class="galery">
 
         <?php
-        $posts_per_page = 8; // Default number of posts per page
-
-        // Check if a custom posts_per_page value is passed via AJAX
-        if (isset($_POST['custom_posts_per_page']) && is_numeric($_POST['custom_posts_per_page'])) {
-            $posts_per_page = intval($_POST['custom_posts_per_page']);
-        }
-        // $current_post_id = get_the_ID();
-        // // Get terms from the "categ" taxonomy associated with the current post
-        // $terms = get_the_terms($current_post_id, 'categ');
 
         $related_query = new WP_Query(array(
             'post_type' => 'photo',
-            'posts_per_page' =>  $posts_per_page,
+            'posts_per_page' =>  8,
             'orderby' => 'date',
             'order' => 'ASC',
             'paged' => 1,
         ));
 
         if ($related_query->have_posts()) { ?>
-
             <div class="related-posts-grid">
                 <?php while ($related_query->have_posts()) { ?>
                     <?php $related_query->the_post(); ?>
@@ -69,14 +106,20 @@ global $wp_query; ?>
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail('full'); ?>
                         </a>
+                        <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" class="preview">
+                            <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
+                        </a>
                     </div>
+
                 <?php } ?>
             </div>
         <?php
         }
         ?>
     </div>
-    <?php wp_reset_postdata(); ?>
+    <div class="galeryAjax" id="ajax_return">
+
+    </div>
     <div class="morePost"></div>
     <div class="btn__wrapper">
         <a href="#!" class="btn btn__primary" id="load-more">Load more</a>

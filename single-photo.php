@@ -64,8 +64,9 @@ get_header();
 		?>
 		<?php echo 'ANNEE: ' ?> <?php echo get_the_date('Y') ?>
 	</div>
+
 	<div class="singlePost-RightGroupContainer">
-		<?php the_post_thumbnail('thumbnail') ?>
+		<?php the_post_thumbnail('large') ?>
 	</div>
 </div>
 
@@ -73,7 +74,7 @@ get_header();
 	<div class="bottomPostBarLeft">
 		<div class="contactPost">
 			<h4>Cette photo vous interesse ?</h4>
-			<a id="contactPostLink" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33" href="#top"> Contact </a>
+			<a id="contactPostLink" class="menu-item-33" href="#"> Contact </a>
 		</div>
 	</div>
 	<div class="bottomPostBarRight">
@@ -84,15 +85,15 @@ get_header();
 
 				if ($next_post) {
 					// Display the thumbnail of the next post
-					echo '<a href="' . esc_url(get_permalink($next_post)) . '">';
-					echo get_the_post_thumbnail($next_post, 'thumbnail');
+					echo '<a class="nextPostPreview" href="' . esc_url(get_permalink($next_post)) . '">';
+					echo get_the_post_thumbnail($next_post, 'large');
 					echo '</a>';
 				}
 				?>
 			</div>
-			<div class="navigation">
-				<div class="nav-previous"><?php previous_post_link('%link', 'Previous Post'); ?></div>
-				<div class="nav-next"><?php next_post_link('%link', 'Next Post'); ?></div>
+			<div class="navigationButton">
+				<div class="nav-previous"><?php previous_post_link('%link', '←'); ?></div>
+				<div class="nav-next"><?php next_post_link('%link', '→'); ?></div>
 			</div>
 			<?php
 			?>
@@ -103,46 +104,57 @@ get_header();
 </div>
 <div class="relatedPost">
 
-	<?php
-	$related_query = new WP_Query(array(
-		'post_type' => 'photo',
-		'posts_per_page' => 2,
-		'orderby' => 'date',
-		'order' => 'ASC',
-	));
+<?php
+$current_post_id = get_the_ID();
+// Get terms from the "categ" taxonomy associated with the current post
+$categTerms = get_the_terms($current_post_id, 'categ');
 
-	if ($related_query->have_posts()) { ?>
+// Extract term IDs from the terms
+$term_ids = array();
+foreach ($categTerms as $term) {
+    $term_ids[] = $term->term_id;
+}
 
-		<div class="related-posts-grid">
+$related_query = new WP_Query(array(
+    'post_type' => 'photo',
+    'posts_per_page' => 2,
+    'orderby' => 'date',
+    'order' => 'ASC',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'categ',
+            'field' => 'id',
+            'terms' => $term_ids,
+        ),
+    ),
+));
 
-			<?php while ($related_query->have_posts()) { ?>
+if ($related_query->have_posts()) { ?>
 
-				<?php
-				$related_query->the_post(); ?>
+    <div class="related-posts-grid">
 
-				<div class="grid-related-item">
-					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('thumbnail'); ?>
-					</a>
+        <?php while ($related_query->have_posts()) { ?>
 
-				</div>
+            <?php $related_query->the_post(); ?>
 
-			<?php } ?>
-		</div>
-		<!-- <div class="navigation">
-				<div class="nav-previous"><?php // previous_post_link(); 
-											?></div>
-				<div class="nav-next"><?php // next_post_link(); 
-										?></div>
-			</div> -->
-	<?php
-	}
-	?>
+            <div class="grid-related-item">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail('large'); ?>
+                </a>
+            </div>
+
+        <?php } ?>
+    </div>
+    <?php
+}
+wp_reset_postdata(); // Reset post data to the main loop
+?>
+   
 
 </div>
-</div>
 
 
-<!-- <?php // endwhile; -->
 
-		get_footer(); ?>
+
+
+<?php get_footer(); ?>

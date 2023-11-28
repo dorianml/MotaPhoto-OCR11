@@ -69,18 +69,16 @@ ul {
 
 /* CONTAINER INDEX */
 
-
-.headerPhoto img  {
+.headerPhoto img {
   width: 100vw;
   height: auto;
   object-fit: cover;
 }
-.headerPhoto  {
- display: flex;
- justify-content: center;
- max-height: 90vh;
+.headerPhoto {
+  display: flex;
+  justify-content: center;
+  max-height: 90vh;
 }
-
 
 .bannerTitle {
   font-size: 7.5em;
@@ -105,40 +103,40 @@ ul {
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .singlePostContainer {
@@ -146,24 +144,24 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- }
+}
 
- .SinglePost-LeftGroupContainer {
-min-width: 45%;
- }
+.SinglePost-LeftGroupContainer {
+  min-width: 45%;
+}
 
- .bottomPostBar {
+.bottomPostBar {
   display: flex;
   flex-direction: row;
   width: 100%;
- }
- .bottomPostBarLeft {
+}
+.bottomPostBarLeft {
   display: flex;
   flex-direction: row;
-  width:50%;
- }
- 
- .contactPost {
+  width: 50%;
+}
+
+.contactPost {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -171,24 +169,30 @@ min-width: 45%;
   width: 100%;
 }
 #contactPostLink {
- background-color: #888;
- padding: 8px 82px 8px 82px;
+  background-color: #888;
+  padding: 8px 82px 8px 82px;
 }
- .bottomPostBarRight {
+.bottomPostBarRight {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width:50%;
- }
- .bottomPostBarRightContent {
+  width: 50%;
+}
+.bottomPostBarRightContent {
   display: flex;
   flex-direction: column;
- }
- .bottomPostBarRightArrows {
+}
+.bottomPostBarRightArrows {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- }
+}
+
+.navigationButton {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 26px 0px 26px;
+}
 
 .navigationSinglePost a {
   padding: 10px 20px;
@@ -205,69 +209,64 @@ min-width: 45%;
   background-color: #0074b8;
 }
 
-
- /* *********************************************************/
+/* *********************************************************/
 /* @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600); */
 
-.contact-elements {position:relative; width:100%;}
+.contact-elements {
+  position: relative;
+  width: 100%;
+}
 input.input-field,
 .tel-number-field,
 .textarea-field,
- .select-field{
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out; 
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: 1px solid #C2C2C2;
-    box-shadow: 1px 1px 4px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    padding: 7px;
-    outline: none;
+.select-field {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #c2c2c2;
+  box-shadow: 1px 1px 4px #ebebeb;
+  -moz-box-shadow: 1px 1px 4px #ebebeb;
+  -webkit-box-shadow: 1px 1px 4px #ebebeb;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  padding: 7px;
+  outline: none;
 }
 .input-field:focus,
 .tel-number-field:focus,
-.textarea-field:focus,  
-.select-field:focus{
-    border: 1px solid #0C0;
+.textarea-field:focus,
+.select-field:focus {
+  border: 1px solid #0c0;
 }
 
-
-div.contact, textarea, input {
+div.contact,
+textarea,
+input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .contact {
-	color:#fff;
-	font-family: 'Open Sans', sans-serif;
-	font-weight:600;
-	line-height:20px;
-	}
-.contact h2 {font-size:50px;}
-.headline {
-	font-size:50px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 20px;
 }
-  .center-btn {
-    text-align: center;
-  }
-.container {
-  /* max-width: 510px;
-  min-width: 300px;
-  margin: 50px auto 0px;
-  padding-bottom:46px;
-  background-color: #fff;
-  border: 1px solid #cfcfcf;
-  border-bottom: 3px solid #ccc;
-  border-radius:5px; */
+.contact h2 {
+  font-size: 50px;
+}
+.headline {
+  font-size: 50px;
+}
+.center-btn {
+  text-align: center;
 }
 
 .row {
@@ -278,13 +277,13 @@ div.contact, textarea, input {
 .row.header {
   padding: 1.5em 2.5em;
   border-bottom: 1px solid #ccc;
-  background-color:#63a7d6;
-  border-top-left-radius:5px;
-  border-top-right-radius:5px;
-  text-align:center;
+  background-color: #63a7d6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
 }
 .row.body {
-  padding: .5em 2.5em 1em;
+  padding: 0.5em 2.5em 1em;
 }
 
 .related-posts-grid {
@@ -301,9 +300,20 @@ div.contact, textarea, input {
 }
 
 .grid-item img {
-  width: 90%;
-  height: auto; /* Each post takes 90% of the container's width */
-  margin: 0 auto; /* Center the image within the grid item */
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.grid-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.grid-item-index {
+  position: relative;
 }
 
 .grid-item-index img {
@@ -311,7 +321,6 @@ div.contact, textarea, input {
   height: 700px;
   object-fit: cover;
 }
-
 .grid-related-item {
   height: 500px;
   width: 500px;
@@ -351,11 +360,228 @@ div.contact, textarea, input {
   text-align: center;
 }
 
+/* CSS FOR THE FILTER SPLIT BUTTON 1 */
+
+.filterNav {
+  display: flex;
+}
+
+.filterTab {
+  margin-left: 200px;
+}
+
+.x-split-button {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.x-button {
+  position: relative;
+  margin: 0;
+  height: 30px;
+  float: left;
+  outline: none;
+  line-height: 27px;
+  background: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button:hover {
+  cursor: pointer;
+  background: #e0e0e0;
+}
+
+.x-button:active {
+  background: #d3d3d3;
+}
+
+.x-button.x-button-drop {
+  border-left: 0;
+  height: 30px;
+}
+
+.open > .x-button-drop-menu {
+  display: block;
+}
+
+.x-button-drop-menu {
+  position: absolute;
+  top: 27px;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #f2f2f2;
+  background-clip: padding-box;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button-drop-menu li a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-family: arial;
+  color: #444;
+  text-decoration: none;
+}
+
+.x-button-drop-menu li a:hover {
+  background: #d3d3d3;
+}
+/* END OF THE CSS FOR THE FILTER SPLIT BUTTON 1 */
+/* CSS for the Filter Split Button 2 */
+.x-split-button2 {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.x-button2 {
+  position: relative;
+  margin: 0;
+  height: 30px;
+  float: left;
+  outline: none;
+  line-height: 27px;
+  background: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button2:hover {
+  cursor: pointer;
+  background: #e0e0e0;
+}
+
+.x-button2:active {
+  background: #d3d3d3;
+}
+
+.x-button2.x-button-drop {
+  border-left: 0;
+  height: 30px;
+}
+
+.open > .x-button2-drop-menu {
+  display: block;
+}
+
+.x-button2-drop-menu {
+  position: absolute;
+  top: 27px;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #f2f2f2;
+  background-clip: padding-box;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button2-drop-menu li a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-family: Arial, sans-serif;
+  color: #444;
+  text-decoration: none;
+}
+
+.x-button2-drop-menu li a:hover {
+  background: #d3d3d3;
+}
+
+/* CSS for the Filter Split Button 3 */
+.x-split-button3 {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.x-button3 {
+  position: relative;
+  margin: 0;
+  height: 30px;
+  float: left;
+  outline: none;
+  line-height: 27px;
+  background: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button3:hover {
+  cursor: pointer;
+  background: #e0e0e0;
+}
+
+.x-button3:active {
+  background: #d3d3d3;
+}
+
+.x-button3.x-button-drop {
+  border-left: 0;
+  height: 30px;
+}
+
+.open > .x-button3-drop-menu {
+  display: block;
+}
+
+.x-button3-drop-menu {
+  position: absolute;
+  top: 27px;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #f2f2f2;
+  background-clip: padding-box;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 2px #e0e0e0;
+}
+
+.x-button3-drop-menu li a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-family: Arial, sans-serif;
+  color: #444;
+  text-decoration: none;
+}
+
+.x-button3-drop-menu li a:hover {
+  background: #d3d3d3;
+}
 
 div.contact-elements p.pull-right {
   float: right;
 }
-div.contact-elements p.left {float:left;}
+div.contact-elements p.left {
+  float: left;
+}
 
 .btn {
   font-size: 1.0625em;
@@ -364,15 +590,15 @@ div.contact-elements p.left {float:left;}
   margin: 1.5em 0 0;
   color: #fff;
   border-width: 0 0 0 0;
-  border-radius:5px;
+  border-radius: 5px;
   text-transform: uppercase;
   background-color: #b3b3b3;
   border-bottom-color: #8c8c8c;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 300;
-    box-shadow: 1px 1px 4px #ccc;
-    -moz-box-shadow: 1px 1px 4px #ccc;
-    -webkit-box-shadow: 1px 1px 4px #ccc;
+  box-shadow: 1px 1px 4px #ccc;
+  -moz-box-shadow: 1px 1px 4px #ccc;
+  -webkit-box-shadow: 1px 1px 4px #ccc;
 }
 .btn:hover {
   background-color: #bfbfbf;
@@ -412,19 +638,20 @@ div.contact-elements p.left {float:left;}
   float: right;
 }
 .contact-elements ul li .divider {
-    border: 0;
-	margin-top: 60px;
+  border: 0;
+  margin-top: 60px;
   margin-bottom: 15px;
-    border-bottom: 1px dashed #ccc;
-    background: #eaeaea;
-	opacity:.5;
+  border-bottom: 1px dashed #ccc;
+  background: #eaeaea;
+  opacity: 0.5;
 }
-.contact-elements ul li, .req {
-	font-size:15px;
-	color:#63a7d6;
-	font-variant:small-caps;
-	text-transform:lowercase;
-	font-weight:bolder;
+.contact-elements ul li,
+.req {
+  font-size: 15px;
+  color: #63a7d6;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-weight: bolder;
 }
 .contact-elements label {
   display: block;
@@ -444,8 +671,8 @@ div.contact-elements p.left {float:left;}
   padding: 6px 10px;
   width: 100%;
   color: #555;
-  resize:none;
-  overflow:auto;
+  resize: none;
+  overflow: auto;
 }
 .contact-elements small {
   color: #4f6fad;
@@ -470,7 +697,8 @@ div.contact-elements p.left {float:left;}
     clear: both;
   }
 
-  li, p {
+  li,
+  p {
     width: 100%;
   }
 
@@ -482,4 +710,3 @@ div.contact-elements p.left {float:left;}
     display: none;
   }
 }
-
