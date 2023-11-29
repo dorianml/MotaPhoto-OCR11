@@ -49,7 +49,7 @@
   right: auto;
   left: 0;
 }
-.lightbox__prev {
+.lightbox__next {
   left: auto;
   right: 0;
 }
@@ -115,6 +115,7 @@
 .grid-item-index:hover .focusIcon {
   visibility: visible;
 }
+
 /* 
   
     .grid-item-index:hover + .focusIcon {

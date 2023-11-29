@@ -1,14 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".ajax-category-link").forEach(function (link) {
+    document.querySelectorAll(".ajax_time_link").forEach(function (link) {
       link.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("AJAX");
+        console.log("AJAX-TIME");
   
-        let categoryID = this.getAttribute("data-category-id");
-        console.log("Category ID:", categoryID);
+        let order = this.getAttribute("data-order");
+  
+        // Log the order for debugging
+        console.log("Order:", order);
+  
         let formData = new FormData();
-        formData.append("action", "request_loop_photo");
-        formData.append("category_id", categoryID);
+        formData.append("action", "request_loop_photo_time");
+        formData.append("order", order); // Add order to the formData
   
         fetch("/wp-admin/admin-ajax.php", {
           method: "POST",
@@ -31,14 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
               data.posts.forEach(function (post) {
                 document
                   .querySelector("#ajax_return")
-                  .insertAdjacentHTML("beforeend", generatePostHTML(post));
+                  .insertAdjacentHTML(
+                    "beforeend",
+                    generatePostHTML(post)
+                  );
               });
             } else {
               console.error("No posts found.");
             }
           })
           .catch(function (error) {
-            console.error("There was a problem with the fetch operation: ", error);
+            // Log specific error message for debugging
+            console.error("Error during fetch operation:", error.message);
           });
       });
     });
@@ -46,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to generate HTML structure for each post
     function generatePostHTML(post) {
       return `
-       
           <div class="grid-item-index">
             <a href="${post.post_permalink}">
               <img src="${post.post_thumbnail}" alt="${post.post_title}">
@@ -54,9 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="${post.attachment_url}" class="preview">
               <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
             </a>
-          </div>
-        
-      `;
+          </div>`;
     }
   });
   

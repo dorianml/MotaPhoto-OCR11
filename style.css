@@ -286,12 +286,18 @@ input {
   padding: 0.5em 2.5em 1em;
 }
 
+
+.morePost,
 .related-posts-grid {
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+
 
 .grid-item {
   width: 40%; /* Each post takes 40% of the container's width */
@@ -314,27 +320,25 @@ input {
 
 .grid-item-index {
   position: relative;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .grid-item-index img {
-  width: 700px;
-  height: 700px;
+  height: 495px;
+  width: 564px;
   object-fit: cover;
 }
+
 .grid-related-item {
-  height: 500px;
-  width: 500px;
-  margin-bottom: 20px; /* Add spacing between posts */
-  text-align: center; /* Center the content within the grid item */
+  height: 495px;
+  width: 564px;
+  position: relative;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: center;
+  overflow: hidden;
   object-fit: cover;
-}
-.grid-related-item {
-  height: 500px;
-  width: 500px;
-  position: relative; /* Needed for absolute positioning of the image */
-  margin-bottom: 20px; /* Add spacing between posts */
-  text-align: center; /* Center the content within the grid item */
-  overflow: hidden; /* Clip any image overflow */
 }
 
 .grid-related-item img {
@@ -348,11 +352,13 @@ input {
 }
 .morePost {
   text-align: center;
+  display: flex;
+  max-width: 100%;
 }
 
 .morePost img {
-  width: 700px;
-  height: 700px;
+  width: 564px;
+  height: 495px;
   object-fit: cover;
 }
 
@@ -364,23 +370,91 @@ input {
 
 .filterNav {
   display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  margin: 20px auto;
 }
 
-.filterTab {
-  margin-left: 200px;
+.filterNav:hover {
+  cursor: pointer;
+}
+
+
+
+.filterNav button {
+  font-family: Poppins;
+  font-size: 12px;
+  padding: 0px 12px 0px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between ;
+  /* align-content: center; */
+  width: 260px;
+  height: 45px;
+}
+.filterNav ul{
+  margin-top: 20px;
+  font-family: Poppins;
+  font-size: 12px;
+  /* padding: 0px 12px 0px 12px; */
+  border-radius: 0px 0px 10px 10px;
+  /* align-content: center; */
+  width: 260px;
+}
+
+.filterNav li{
+  display: flex;
+  align-items: center;
+  font-family: Poppins;
+  font-size: 14px;
+  height: 45px;
+  /* align-content: center; */
+}
+/* 
+.filterNav li .open {
+  display: none;
+} */
+
+.filterNav li:hover{
+  cursor: pointer;
+  background: #ee0909;
+  color: whitesmoke;
+}
+
+.filterNav a{
+  padding-left: 12px;
+  width: 260px;
+  height: 45px;
+  display: flex; 
+  align-items: center; 
+}
+
+
+.filterFormat {
+  margin-left: 30px;
+}
+button {
+cursor: pointer;
+}
+
+.filterType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
 }
 
 .x-split-button {
   position: relative;
   display: inline-block;
   text-align: left;
-  margin-top: 20px;
 }
 
 .x-button {
   position: relative;
   margin: 0;
-  height: 30px;
+  height: 43px;
   float: left;
   outline: none;
   line-height: 27px;
@@ -400,11 +474,14 @@ input {
 
 .x-button.x-button-drop {
   border-left: 0;
-  height: 30px;
+  height: 45px;
 }
 
 .open > .x-button-drop-menu {
   display: block;
+}
+.closeFilter{
+  display: none;
 }
 
 .x-button-drop-menu {
@@ -415,7 +492,7 @@ input {
   display: none;
   float: left;
   min-width: 160px;
-  padding: 5px 0;
+  padding: 0px 0;
   margin: 2px 0 0;
   font-size: 14px;
   list-style: none;
@@ -425,25 +502,25 @@ input {
   box-shadow: 1px 1px 2px #e0e0e0;
 }
 
-.x-button-drop-menu li a {
+/* .x-button-drop-menu li a {
   display: block;
   padding: 3px 20px;
   clear: both;
   font-family: arial;
   color: #444;
   text-decoration: none;
-}
+} */
 
-.x-button-drop-menu li a:hover {
+/* .x-button-drop-menu li a:hover {
   background: #d3d3d3;
-}
+} */
 /* END OF THE CSS FOR THE FILTER SPLIT BUTTON 1 */
 /* CSS for the Filter Split Button 2 */
 .x-split-button2 {
   position: relative;
   display: inline-block;
   text-align: left;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .x-button2 {
@@ -458,14 +535,15 @@ input {
   box-shadow: 1px 1px 2px #e0e0e0;
 }
 
-.x-button2:hover {
+ .x-button2:hover {
   cursor: pointer;
   background: #e0e0e0;
 }
 
+/*
 .x-button2:active {
   background: #d3d3d3;
-}
+} */
 
 .x-button2.x-button-drop {
   border-left: 0;
@@ -475,6 +553,9 @@ input {
 .open > .x-button2-drop-menu {
   display: block;
 }
+/* .close > .x-button2-drop-menu {
+  display: none;
+} */
 
 .x-button2-drop-menu {
   position: absolute;
@@ -494,25 +575,24 @@ input {
   box-shadow: 1px 1px 2px #e0e0e0;
 }
 
-.x-button2-drop-menu li a {
+/* .x-button2-drop-menu li a {
   display: block;
   padding: 3px 20px;
   clear: both;
-  font-family: Arial, sans-serif;
   color: #444;
   text-decoration: none;
-}
+} */
 
-.x-button2-drop-menu li a:hover {
+/* .x-button2-drop-menu li a:hover {
   background: #d3d3d3;
-}
+} */
 
 /* CSS for the Filter Split Button 3 */
 .x-split-button3 {
   position: relative;
   display: inline-block;
   text-align: left;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .x-button3 {
@@ -544,6 +624,9 @@ input {
 .open > .x-button3-drop-menu {
   display: block;
 }
+/* .close > .x-button2-drop-menu {
+  display: none;
+} */
 
 .x-button3-drop-menu {
   position: absolute;
@@ -563,7 +646,7 @@ input {
   box-shadow: 1px 1px 2px #e0e0e0;
 }
 
-.x-button3-drop-menu li a {
+/* .x-button3-drop-menu li a {
   display: block;
   padding: 3px 20px;
   clear: both;
@@ -574,7 +657,7 @@ input {
 
 .x-button3-drop-menu li a:hover {
   background: #d3d3d3;
-}
+} */
 
 div.contact-elements p.pull-right {
   float: right;

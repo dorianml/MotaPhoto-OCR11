@@ -39,90 +39,70 @@ global $wp_query; ?>
         ?>
         <!-- <img src="<?php echo get_stylesheet_directory_uri() . '/images/Photos NMota/nathalie-11.jpeg'; ?>  " alt="party-photo-by-nathalie"> -->
     </div>
-    <div class="filterNav">
-
-        <?php
-        // Get categories
-        $categories = get_terms('categ', array('hide_empty' => false));
-        // Get formats
-        $formats = get_terms('format', array('hide_empty' => false));
-        ?>
-        <div class="filterTab">
-            <span class="x-split-button">
-                <button class="x-button x-button-main">&#10070;CATEGORIE</button>
-                <button class="x-button x-button-drop">&#9660;</button>
-                <ul class="x-button-drop-menu">
-                    <?php
-                    foreach ($categories as $category) {
-                        echo '<li><a class="ajax-category-link" data-category-id="' . $category->term_id . '" id="ajax_call">' . $category->name . '</a></li>';
-                    }
-                    ?>
-                </ul>
-
-            </span>
-        </div>
-        <div class="filterTab">
-            <span class="x-split-button3">
-                <button class="x-button3 x-button3-main">&#10070; TRIER PAR</button>
-                <button class="x-button3 x-button3-drop">&#9660;</button>
-                <ul class="x-button3-drop-menu">
-                    <li><a class='ajax_time_link' href="?orderby=date&order=asc" data-order="asc">OLDEST</a></li>
-                    <li><a class='ajax_time_link' href="?orderby=date&order=desc" data-order="desc">NEWEST</a></li>
-                </ul>
-            </span>
-        </div>
-        <div class="filterTab">
-            <span class="x-split-button2">
-                <button class="x-button2 x-button2-main">&#10070; FORMAT</button>
-                <button class="x-button2 x-button2-drop">&#9660;</button>
-                <ul class="x-button2-drop-menu">
-                    <?php
-                    foreach ($formats as $format) {
-                        echo '<li><a class="ajax-format-link" data-format-id="' . $format->term_id . '">' . $format->name . '</a></li>';
-                    }
-                    ?>
-                </ul>
-            </span>
-        </div>
-    </div>
-
     <div class="galery">
+        <div class="filterNav">
 
-        <?php
+            <?php
+            // Get categories
+            $categories = get_terms('categ', array('hide_empty' => false));
+            // Get formats
+            $formats = get_terms('format', array('hide_empty' => false));
+            ?>
+            <div class="filterType">
+                <div class="filterCategory">
+                    <span class="x-split-button">
+                        <button class="x-button x-button-drop">CATEGORIES <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.58934 7.74408C5.2639 7.41864 4.73626 7.41864 4.41083 7.74408C4.08539 8.06951 4.08539 8.59715 4.41083 8.92259L9.41083 13.9226C9.73626 14.248 10.2639 14.248 10.5893 13.9226L15.5893 8.92259C15.9148 8.59715 15.9148 8.06951 15.5893 7.74408C15.2639 7.41864 14.7363 7.41864 14.4108 7.74408L10.0001 12.1548L5.58934 7.74408Z" fill="#313144" />
+                            </svg>
+                        </button>
+                        <ul class="filter-drop-menu x-button-drop-menu">
+                            <?php
+                            foreach ($categories as $category) {
+                                echo '<li><a class="ajax-category-link" data-category-id="' . $category->term_id . '" id="ajax_call">' . $category->name . '</a></li>';
+                            }
+                            ?>
+                        </ul>
 
-        $related_query = new WP_Query(array(
-            'post_type' => 'photo',
-            'posts_per_page' =>  8,
-            'orderby' => 'date',
-            'order' => 'ASC',
-            'paged' => 1,
-        ));
-
-        if ($related_query->have_posts()) { ?>
-            <div class="related-posts-grid">
-                <?php while ($related_query->have_posts()) { ?>
-                    <?php $related_query->the_post(); ?>
-                    <div class="grid-item-index">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('full'); ?>
-                        </a>
-                        <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" class="preview">
-                            <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
-                        </a>
-                    </div>
-
-                <?php } ?>
+                    </span>
+                </div>
+                <div class="filterFormat">
+                    <span class="x-split-button2">
+                        <button class="x-button2 x-button2-drop">FORMAT <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.58934 7.74408C5.2639 7.41864 4.73626 7.41864 4.41083 7.74408C4.08539 8.06951 4.08539 8.59715 4.41083 8.92259L9.41083 13.9226C9.73626 14.248 10.2639 14.248 10.5893 13.9226L15.5893 8.92259C15.9148 8.59715 15.9148 8.06951 15.5893 7.74408C15.2639 7.41864 14.7363 7.41864 14.4108 7.74408L10.0001 12.1548L5.58934 7.74408Z" fill="#313144" />
+                            </svg></button>
+                        <ul class="filter-drop-menu x-button2-drop-menu">
+                            <?php
+                            foreach ($formats as $format) {
+                                echo '<li><a class="ajax-format-link" data-format-id="' . $format->term_id . '">' . $format->name . '</a></li>';
+                            }
+                            ?>
+                        </ul>
+                    </span>
+                </div>
             </div>
+            <div class="filterTime">
+                <span class="x-split-button3">
+                    <button class="x-button3 x-button3-drop">TRIER PAR <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.58934 7.74408C5.2639 7.41864 4.73626 7.41864 4.41083 7.74408C4.08539 8.06951 4.08539 8.59715 4.41083 8.92259L9.41083 13.9226C9.73626 14.248 10.2639 14.248 10.5893 13.9226L15.5893 8.92259C15.9148 8.59715 15.9148 8.06951 15.5893 7.74408C15.2639 7.41864 14.7363 7.41864 14.4108 7.74408L10.0001 12.1548L5.58934 7.74408Z" fill="#313144" />
+                        </svg></button>
+
+                    <ul class="filter-drop-menu x-button3-drop-menu">
+                        <li><a class='ajax_time_link'  data-order="asc">Les plus anciens</a></li>
+                        <li><a class='ajax_time_link'  data-order="desc">Les plus récents</a></li>
+                    </ul>
+
+                </span>
+            </div>
+        </div>
         <?php
-        }
+        include 'template-parts/photoGallery.php';
         ?>
     </div>
     <div class="galeryAjax" id="ajax_return">
-
     </div>
     <div class="morePost"></div>
     <div class="btn__wrapper">
-        <a href="#!" class="btn btn__primary" id="load-more">Load more</a>
+        <a href="#!" class="btn btn__primary" id="load-more">Plus de photos</a>
     </div>
 </div>
 
