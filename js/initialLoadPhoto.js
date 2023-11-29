@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to generate HTML structure for each post
   function generatePostHTML(post) {
     return `
-      <div class="grid-item-index">
-        <a href="${post.post_permalink}">
-          <img src="${post.post_thumbnail}" alt="${post.post_title}">
-        </a>
-        <a href="${post.attachment_url}" class="preview">
-          <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
-        </a>
-      </div>`;
+    <div class="grid-item-index">
+    <a href="${post.post_permalink}">
+      <img src="${post.post_thumbnail}" alt="${post.post_title}">
+    </a>
+    <a href="${post.post_permalink}" class="preview">
+      <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
+    </a>
+  </div>`;
   }
 });

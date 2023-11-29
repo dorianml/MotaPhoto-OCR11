@@ -1,14 +1,5 @@
 <footer>
 
- <!-- <div class="lightbox">
-  <button class="lightbox__close">Fermer</button>
-  <button class="lightbox__next">Suivant</button>
-  <button class="lightbox__prev">Précédent</button>
-  <div class="lightbox__container">
-    <img src="https://picsum.photos/1080/720/?blur=2" alt="">
-  </div>
-</div>  -->
-
   <nav class="footerNav">
     <?php
     wp_nav_menu(array([

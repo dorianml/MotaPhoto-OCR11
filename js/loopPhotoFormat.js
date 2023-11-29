@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (data.posts) {
             data.posts.forEach(function (post) {
+              console.log("Post Object:", post);
               document
                 .querySelector("#ajax_return")
                 .insertAdjacentHTML(
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="${post.post_permalink}">
             <img src="${post.post_thumbnail}" alt="${post.post_title}">
           </a>
-          <a href="${post.attachment_url}" class="preview">
+          <a href="${post.post_permalink}" class="preview">
             <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
           </a>
         </div>`;

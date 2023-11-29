@@ -297,8 +297,6 @@ input {
   justify-content: center;
 }
 
-
-
 .grid-item {
   width: 40%; /* Each post takes 40% of the container's width */
   margin-bottom: 20px; /* Add spacing between posts */

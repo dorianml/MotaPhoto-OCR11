@@ -61,6 +61,42 @@ function weichie_load_more()
 add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
 add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');
 
+function load_all_photo() {
+    $args = array(
+        'post_type'      => 'photo',
+        'posts_per_page' => -1, // Retrieve all posts
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
+
+    $query = new WP_Query($args);
+
+    $posts = array();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $thumbnail_url = get_the_post_thumbnail_url();
+            $post_data = array(
+                'post_permalink' => get_permalink(),
+                'post_title'     => get_the_title(),
+                'post_thumbnail' => $thumbnail_url,
+            );
+            $posts[] = $post_data;
+        }
+        wp_reset_postdata();
+    }
+
+    $response['posts'] = $posts;
+
+    wp_send_json($response);
+    wp_die();
+}
+
+add_action('wp_ajax_request_load_all_photo', 'load_all_photo');
+add_action('wp_ajax_nopriv_request_load_all_photo', 'load_all_photo');
+
+
 function initial_load_photo() {
     $args = array(
         'post_type'      => 'photo',

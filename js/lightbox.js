@@ -46,42 +46,7 @@ class Lightbox {
     image.src = url;
   }
 
-  /* Ferme la lightbox */
-  close(e) {
-    e.preventDefault();
-    this.element.classList.add("fadeOut");
-    window.setTimeout(() => {
-      this.element.parentElement.removeChild(this.element);
-    }, 500);
-    document.removeEventListener("keyup", this.onKeyUp);
-    const previews = document.querySelectorAll(".preview");
-    previews.forEach((preview) => preview.classList.remove("hidden"));
-  }
 
-  onKeyUp(e) {
-    if (e.key === "Escape") {
-      this.close(e);
-      const previews = document.querySelectorAll(".preview");
-      previews.forEach((preview) => preview.classList.remove("hidden"));
-    }
-  }
-
-  next(e) {
-    e.preventDefault();
-    let i = this.images.findIndex((image) => image === this.url);
-    if (i === this.images.length - 1) {
-        i = -1
-    }
-    this.loadImage(this.images[i + 1]);
-  }
-  prev(e) {
-    e.preventDefault();
-    let i = this.images.findIndex((image) => image === this.url);
-    if (i === 0) {
-        i = this.images.length;
-    }
-    this.loadImage(this.images[i - 1]);
-}
   /*
             @param {string} url (de l'image)
             @return {HTMLElement} 
@@ -110,6 +75,44 @@ class Lightbox {
       .addEventListener("click", this.next.bind(this));
     return dom;
   }
+
+    /* Ferme et navigue dans la lightbox */
+    close(e) {
+      e.preventDefault();
+      this.element.classList.add("fadeOut");
+      window.setTimeout(() => {
+        this.element.parentElement.removeChild(this.element);
+      }, 500);
+      document.removeEventListener("keyup", this.onKeyUp);
+      const previews = document.querySelectorAll(".preview");
+      previews.forEach((preview) => preview.classList.remove("hidden"));
+    }
+  
+    onKeyUp(e) {
+      if (e.key === "Escape") {
+        this.close(e);
+        const previews = document.querySelectorAll(".preview");
+        previews.forEach((preview) => preview.classList.remove("hidden"));
+      }
+    }
+  
+    next(e) {
+      e.preventDefault();
+      let i = this.images.findIndex((image) => image === this.url);
+      if (i === this.images.length - 1) {
+          i = -1
+      }
+      this.loadImage(this.images[i + 1]);
+    }
+    prev(e) {
+      e.preventDefault();
+      let i = this.images.findIndex((image) => image === this.url);
+      if (i === 0) {
+          i = this.images.length;
+      }
+      this.loadImage(this.images[i - 1]);
+  }
+
 }
 
 Lightbox.init();
