@@ -87,8 +87,8 @@ global $wp_query; ?>
                         </svg></button>
 
                     <ul class="filter-drop-menu x-button3-drop-menu">
-                        <li><a class='ajax_time_link'  data-order="asc">Les plus anciens</a></li>
-                        <li><a class='ajax_time_link'  data-order="desc">Les plus récents</a></li>
+                        <li><a class='ajax_time_link' data-order="asc">Les plus anciens</a></li>
+                        <li><a class='ajax_time_link' data-order="desc">Les plus récents</a></li>
                     </ul>
 
                 </span>

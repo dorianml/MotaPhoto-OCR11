@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initialLoadPhoto() {
     let formData = new FormData();
     formData.append("action", "request_initial_load_photo");
-    
+
     fetch("/wp-admin/admin-ajax.php", {
       method: "POST",
       body: formData,
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </a>
     <a href="${post.post_thumbnail}" class="focusIcon">
     </a>
+    <div class="eyeIcone"></div> 
   </div>`;
   }
 });

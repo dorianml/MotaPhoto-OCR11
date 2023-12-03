@@ -101,7 +101,9 @@
 }
 
 .focusIcon {
-  /* background-image: url(images/Icon_fullscreen.svg); */
+  background-image: url(images/Icon_fullscreen.svg);
+  background-repeat: no-repeat;
+  background-position: center center; /* Center the background image */
   visibility: hidden;
   position: absolute;
   z-index: 200;
@@ -110,12 +112,30 @@
   border-radius: 50%;
   width: 60px; /* Adjust the size as needed */
   height: 60px; /* Adjust the size as needed */
-  background-color: red;
+  /* background-color: red; */
 }
 
 .grid-item-index:hover .focusIcon  {
   visibility: visible;
 }
+
+.eyeIcone {
+  display: none;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6000;
+  background-image: url(images/eyeIconePreview.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.grid-item-index:hover .eyeIcone  {
+  display: block;
+}
+
 
 /* 
   
