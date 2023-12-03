@@ -118,10 +118,17 @@ function initial_load_photo() {
         while ($query->have_posts()) {
             $query->the_post();
             $thumbnail_url = get_the_post_thumbnail_url();
+            
+            $categories = get_the_terms(get_the_ID(), 'categ');
+            $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
+
             $post_data = array(
-                'post_permalink' => get_permalink(),
-                'post_title'     => get_the_title(),
-                'post_thumbnail' => $thumbnail_url,
+                'post_category_object' => $categories,
+                'post_category'       => !empty($category_names) ? $category_names[0] : '',
+                'post_reference'      => get_field('reference'),
+                'post_permalink'      => get_permalink(),
+                'post_title'          => get_the_title(),
+                'post_thumbnail'      => $thumbnail_url,
             );
             $posts[] = $post_data;
         }
@@ -136,6 +143,7 @@ function initial_load_photo() {
 
 add_action('wp_ajax_request_initial_load_photo', 'initial_load_photo');
 add_action('wp_ajax_nopriv_request_initial_load_photo', 'initial_load_photo');
+
 
 
 function loop_photo() {

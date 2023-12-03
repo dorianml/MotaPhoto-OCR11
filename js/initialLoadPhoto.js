@@ -48,7 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
     </a>
     <a href="${post.post_thumbnail}" class="focusIcon">
     </a>
-    <div class="eyeIcone"></div> 
+    <div class="eyeIcone"></div>
+    <div class="previewREF">${post.post_reference}</div> 
+    <div class="previewCAT">${post.post_category}</div> 
   </div>`;
   }
 });
