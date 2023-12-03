@@ -66,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="${post.post_permalink}">
             <img src="${post.post_thumbnail}" alt="${post.post_title}">
           </a>
-          <a href="${post.post_permalink}" class="preview">
-            <img class="preview focusIcon" src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="">
+          <a href="${post.post_thumbnail}" class="focusIcon">
           </a>
         </div>`;
   }

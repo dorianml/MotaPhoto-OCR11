@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="${post.post_permalink}">
               <img src="${post.post_thumbnail}" alt="${post.post_title}">
             </a>
-            <a href="${post.post_permalink}" class="preview focusIcon">
+            <a href="${post.post_thumbnail}" class="focusIcon">
             </a>
           </div>
         
