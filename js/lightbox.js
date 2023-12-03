@@ -1,26 +1,49 @@
 class Lightbox {
-  static init() {
-// const apiUrl = 'http://localhost:10066/wp-json/wp/v2/photo';
-
-/*Récupérer tout les post */ 
-    const previews = Array.from(
-      document.querySelectorAll(
-        'a[href$="jpeg"], a[href$="png"], a[href$="jpg"]'
-      )
-    );
-
-    const gallery = previews.map((preview) => preview.getAttribute('href'));
-    previews.forEach((preview) =>
-      preview.addEventListener("click", (e) => {
-        preview.classList.add("hidden");
-        e.preventDefault();
-        console.log("Clicked on .preview");
-        new Lightbox(e.currentTarget.getAttribute("href"), gallery);
-      })
-    );
-  }
-
-
+    static init() {
+        const apiUrl = '/wp-admin/admin-ajax.php'; // Set the correct AJAX endpoint
+        // Fetch data from Function 2 (lightbox)
+        fetch(apiUrl, {
+          method: 'POST',
+          body: new URLSearchParams({ action: 'request_lightbox' }), // Use URLSearchParams
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response error.');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data.posts) {
+              // Use the data.posts array for previews
+              // const previews = data.posts.map((post) => {
+              //   console.log(previews);
+              //   return document.querySelector(`a[href="${post.post_thumbnail}"]`);
+              // });
+    
+              const gallery = data.posts.map((post) => post.post_thumbnail);
+    
+              document.addEventListener('click', function(e) {
+                if (e.target && e.target.matches('.focusIcon')) {
+                    // Handle the click event
+                    e.preventDefault();
+                    console.log('Clicked on .preview');
+                    console.log(gallery);
+                    // console.log(previews);
+                    const postPermalink = e.target.getAttribute('href'); // Get the 'href' attribute from the previous sibling (the 'a' tag)
+                    console.log(postPermalink); // post_permalink is not defined
+                    // new Lightbox(imgSrc, gallery);                    console.log(post_permalink);
+                    new Lightbox(postPermalink, gallery);
+                }
+            });
+            } else {
+              console.error('No posts found.');
+            }
+          })
+          .catch((error) => {
+            console.error('There was a problem with the fetch operation: ', error);
+          });
+      }
+      
   constructor(url, images) {
     this.element = this.buildDOM(url);
     this.images = images;

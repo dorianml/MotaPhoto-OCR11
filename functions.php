@@ -61,7 +61,7 @@ function weichie_load_more()
 add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
 add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');
 
-function load_all_photo() {
+function lightbox() {
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => -1, // Retrieve all posts
@@ -72,17 +72,20 @@ function load_all_photo() {
     $query = new WP_Query($args);
 
     $posts = array();
+    $index = 0;
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
             $thumbnail_url = get_the_post_thumbnail_url();
             $post_data = array(
+                'post_index'     => $index,
                 'post_permalink' => get_permalink(),
                 'post_title'     => get_the_title(),
                 'post_thumbnail' => $thumbnail_url,
             );
             $posts[] = $post_data;
+            $index++;
         }
         wp_reset_postdata();
     }
@@ -93,8 +96,10 @@ function load_all_photo() {
     wp_die();
 }
 
-add_action('wp_ajax_request_load_all_photo', 'load_all_photo');
-add_action('wp_ajax_nopriv_request_load_all_photo', 'load_all_photo');
+add_action('wp_ajax_request_lightbox', 'lightbox');
+add_action('wp_ajax_nopriv_request_lightbox', 'lightbox');
+
+
 
 
 function initial_load_photo() {
@@ -259,6 +264,8 @@ function enqueue_custom_scripts() {
     wp_localize_script('loopPhotoFormat_script', 'loop_photo_format_js', array('ajax_url' => admin_url('admin-ajax.php')));
     wp_enqueue_script('loopPhotoTime_script', get_template_directory_uri() . '/js/loopPhotoTime.js', array('jquery'), '1.0.0', true);
     wp_localize_script('loopPhotoTime_script', 'loop_photo_time_js', array('ajax_url' => admin_url('admin-ajax.php')));
+    wp_enqueue_script('lightbox_script', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0.0', true);
+    wp_localize_script('lightbox_script', 'lightbox_js', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
