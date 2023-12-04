@@ -388,7 +388,7 @@ input {
 
 
 .filterNav button {
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 12px;
   padding: 0px 12px 0px 12px;
   border-radius: 10px;
@@ -399,6 +399,8 @@ input {
   width: 260px;
   height: 45px;
 }
+
+
 .filterNav ul{
   margin-top: 20px;
   font-family: Poppins;
@@ -440,9 +442,13 @@ input {
 .filterFormat {
   margin-left: 30px;
 }
+
 button {
 cursor: pointer;
 }
+
+.filterLink:hover {
+color: white;}
 
 .filterType {
   display: flex;
