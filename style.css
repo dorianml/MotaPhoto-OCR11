@@ -448,7 +448,8 @@ cursor: pointer;
 }
 
 .filterLink:hover {
-color: white;}
+color: white;
+}
 
 .filterType {
   display: flex;

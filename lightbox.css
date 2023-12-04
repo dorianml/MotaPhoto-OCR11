@@ -128,13 +128,44 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 6000;
-  background-image: url(images/eyeIconePreview.png);
+  background-image: url(images/eyeIconePreview.png); 
   background-repeat: no-repeat;
   background-position: center;
 }
 .grid-item-index:hover .eyeIcone  {
   display: block;
 }
+
+
+.previewREF {
+  display: none;
+  position: absolute;
+  top: 92%;
+  left: 4%;
+  z-index: 6000;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: white;
+}
+.grid-item-index:hover .previewREF  {
+  display: block;
+}
+
+
+.previewCAT {
+  display: none;
+  position: absolute;
+  top: 92%;
+  right: 4%;
+  z-index: 6000;
+  font-family: 'Poppins', sans-serif;
+ text-transform: uppercase;
+color: white;
+}
+.grid-item-index:hover .previewCAT  {
+  display: block;
+}
+
 
 
 /* 

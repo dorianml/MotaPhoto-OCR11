@@ -61,13 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to generate HTML structure for each post
   function generatePostHTML(post) {
     return `
-
-        <div class="grid-item-index">
-          <a href="${post.post_permalink}">
-            <img src="${post.post_thumbnail}" alt="${post.post_title}">
-          </a>
-          <a href="${post.post_thumbnail}" class="focusIcon">
-          </a>
-        </div>`;
+    <div class="grid-item-index">
+    <a href="${post.post_permalink}">
+      <img src="${post.post_thumbnail}" alt="${post.post_title}">
+    </a>
+    <a href="${post.post_thumbnail}" class="focusIcon .preview">
+    </a>
+    <a href="${post.post_permalink}"> <div class="eyeIcone"> </div> </a>
+    <div class="previewREF .preview">${post.post_reference}</div> 
+    <div class="previewCAT .preview">${post.post_category}</div> 
+  </div>`;
   }
 });

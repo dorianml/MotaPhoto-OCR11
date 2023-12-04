@@ -24,11 +24,19 @@ class Lightbox {
     
               document.addEventListener('click', function(e) {
                 if (e.target && e.target.matches('.focusIcon')) {
+                  const previews = document.querySelectorAll(".preview");
+
+                  previews.forEach((preview) => {
+                    preview.classList.add("hidden");
+                  });
+                  
+                  // Optional: Remove the following line if you don't need the console log
+                  console.log(previews);
+                  
                     // Handle the click event
                     e.preventDefault();
                     console.log('Clicked on .preview');
                     console.log(gallery);
-                    // console.log(previews);
                     const postPermalink = e.target.getAttribute('href'); // Get the 'href' attribute from the previous sibling (the 'a' tag)
                     console.log(postPermalink); // post_permalink is not defined
                     // new Lightbox(imgSrc, gallery);                    console.log(post_permalink);

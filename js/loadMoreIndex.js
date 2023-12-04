@@ -7,7 +7,7 @@ $("#load-more").on("click", function () {
     url: "/wp-admin/admin-ajax.php",
     dataType: "html",
     data: {
-      action: "weichie_load_more",
+      action: "load_more",
       paged: currentPage,
     },
     success: function (res) {
