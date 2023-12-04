@@ -27,7 +27,7 @@ get_header();
 
 		// Check if the custom field has a value
 		if ($custom_field_value) {
-			echo '<p> REFERENCE: ' . $custom_field_value . '</p>';
+			echo '<p> RÉFÉRENCE: ' . $custom_field_value . '</p>';
 		}
 
 		// Get the value of the custom field for the current post
@@ -47,7 +47,7 @@ get_header();
 
 		if ($terms && !is_wp_error($terms)) {
 			foreach ($terms as $term) {
-				echo 'CATEGORIE: ' . '<a href="' . get_term_link($term) . '">' . $term->name . '</a> ';
+				echo 'CATÉGORIE: ' . '<a href="' . get_term_link($term) . '">' . $term->name . '</a> ';
 			}
 		}
 		?>
@@ -149,8 +149,9 @@ if ($related_query->have_posts()) { ?>
 }
 wp_reset_postdata(); // Reset post data to the main loop
 ?>
-   
-
+<div class="buttonToutesPhotos">
+	<a href="#" class="buttonAllPhoto"> Toutes les photos </a>
+</div>
 </div>
 
 

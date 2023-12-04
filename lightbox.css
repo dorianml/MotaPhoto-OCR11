@@ -33,6 +33,9 @@
 
 .lightbox__next,
 .lightbox__prev {
+  color: white;
+  margin-left: 16%;
+  margin-right: 16%;
   border: none;
   z-index: 101;
   position: fixed;
@@ -90,6 +93,20 @@
     no-repeat center center;
   background-size: contain; /* or cover, depending on your design preference */
 }
+
+.infosPhoto {
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%; /* Align to the bottom of the lightbox */
+  color: white; /* Add a background color if needed */
+  padding: 10px; /* Add padding for better visibility */
+  display: flex;
+  justify-content: space-between;
+  width: 30%; /* Ensure it takes the full width of the lightbox */
+}
+
 
 @keyframes lightboxIn {
   from {

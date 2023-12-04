@@ -37,7 +37,7 @@ add_action('init', 'register_my_menus');
 //         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
 //             $thumbnail = get_the_post_thumbnail(get_the_ID(), 'full');
 //             $permalink = get_the_permalink();
-            
+
 //             // Generate HTML structure for each post with the 'grid-item-index' div
 //             $response .= '
 //                 <div class="grid-item-index">
@@ -52,21 +52,31 @@ add_action('init', 'register_my_menus');
 //     } else {
 //         $response = ''; // No posts, set response to empty string
 //     }
-    
+
 //     echo $response;
 //     exit;
-    
-    
+
+
 // }
 // add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
 // add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');
 
-function lightbox() {
+function lightbox()
+{
+    $current_category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
+    // $categories = get_the_terms(get_the_ID(), 'categ');
+    // $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
+
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => -1, // Retrieve all posts
         'orderby'        => 'date',
         'order'          => 'DESC',
+        'tax_query'      => array( 
+                'taxonomy' => 'categ',
+                'field'    => 'id',
+                'terms'    => $current_category_id,
+        ),
     );
 
     $query = new WP_Query($args);
@@ -78,11 +88,18 @@ function lightbox() {
         while ($query->have_posts()) {
             $query->the_post();
             $thumbnail_url = get_the_post_thumbnail_url();
+
+            $categories = get_the_terms(get_the_ID(), 'categ');
+            $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
+            
             $post_data = array(
                 'post_index'     => $index,
                 'post_permalink' => get_permalink(),
                 'post_title'     => get_the_title(),
                 'post_thumbnail' => $thumbnail_url,
+                'post_category_object' => $categories,
+                'post_category'       => !empty($category_names) ? $category_names[0] : '',
+                'post_reference'      => get_field('reference'),
             );
             $posts[] = $post_data;
             $index++;
@@ -91,6 +108,8 @@ function lightbox() {
     }
 
     $response['posts'] = $posts;
+    $response['category'] = $category_names; // Pass the category array
+    $response['reference'] = get_field('reference'); // Pass the reference
 
     wp_send_json($response);
     wp_die();
@@ -101,7 +120,8 @@ add_action('wp_ajax_nopriv_request_lightbox', 'lightbox');
 
 
 /* INITIAL LOAD PHOTO */
-function load_photo_posts($offset = 0, $posts_per_page = 8) {
+function load_photo_posts($offset = 0, $posts_per_page = 8)
+{
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => $posts_per_page,
@@ -118,7 +138,7 @@ function load_photo_posts($offset = 0, $posts_per_page = 8) {
         while ($query->have_posts()) {
             $query->the_post();
             $thumbnail_url = get_the_post_thumbnail_url();
-            
+
             $categories = get_the_terms(get_the_ID(), 'categ');
             $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
 
@@ -137,14 +157,16 @@ function load_photo_posts($offset = 0, $posts_per_page = 8) {
 
     return $posts;
 }
-function initial_load_photo() {
+function initial_load_photo()
+{
     $response['posts'] = load_photo_posts();
     wp_send_json($response);
     wp_die();
 }
 /* LOAD MORE INITIAL PHOTO */
 
-function load_more_photo_posts() {
+function load_more_photo_posts()
+{
     $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
     $posts = load_photo_posts($offset);
     $response['posts'] = $posts;
@@ -173,7 +195,7 @@ add_action('wp_ajax_nopriv_load_more_photo_posts', 'load_more_photo_posts');
 //         while ($query->have_posts()) {
 //             $query->the_post();
 //             $thumbnail_url = get_the_post_thumbnail_url();
-            
+
 //             $categories = get_the_terms(get_the_ID(), 'categ');
 //             $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
 
@@ -200,7 +222,8 @@ add_action('wp_ajax_nopriv_load_more_photo_posts', 'load_more_photo_posts');
 // add_action('wp_ajax_nopriv_request_initial_load_photo', 'initial_load_photo');
 
 
-function loop_photo() {
+function loop_photo()
+{
     $current_category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
     $args = array(
         'post_type'      => 'photo',
@@ -248,7 +271,8 @@ function loop_photo() {
 add_action('wp_ajax_request_loop_photo', 'loop_photo');
 add_action('wp_ajax_nopriv_request_loop_photo', 'loop_photo');
 
-function loop_photo_format() {
+function loop_photo_format()
+{
     $current_format_id = isset($_POST['format_id']) ? $_POST['format_id'] : 0;
 
     $args = array(
@@ -269,7 +293,7 @@ function loop_photo_format() {
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
-            
+
             $query->the_post();
             $thumbnail_url = get_the_post_thumbnail_url();
 
@@ -298,7 +322,8 @@ function loop_photo_format() {
 add_action('wp_ajax_request_loop_photo_format', 'loop_photo_format');
 add_action('wp_ajax_nopriv_request_loop_photo_format', 'loop_photo_format');
 
-function loop_photo_time() {
+function loop_photo_time()
+{
     $order = isset($_POST['order']) ? $_POST['order'] : 'desc'; // Default to 'desc' if not provided
 
     $args = array(
@@ -340,7 +365,8 @@ function loop_photo_time() {
 add_action('wp_ajax_request_loop_photo_time', 'loop_photo_time');
 add_action('wp_ajax_nopriv_request_loop_photo_time', 'loop_photo_time');
 
-function enqueue_custom_scripts() {
+function enqueue_custom_scripts()
+{
     wp_enqueue_script('loopPhoto_script', get_template_directory_uri() . '/js/loopPhoto.js', array('jquery'), '1.0.0', true);
     wp_localize_script('loopPhoto_script', 'loop_photo_js', array('ajax_url' => admin_url('admin-ajax.php')));
     wp_enqueue_script('loopPhotoFormat_script', get_template_directory_uri() . '/js/loopPhotoFormat.js', array('jquery'), '1.0.0', true);
@@ -352,6 +378,3 @@ function enqueue_custom_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
-
-

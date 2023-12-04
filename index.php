@@ -102,7 +102,7 @@ global $wp_query; ?>
     </div>
     <div class="morePost"></div>
     <div class="btn__wrapper">
-        <a href="#!" class="btn btn__primary" id="load-more">Plus de photos</a>
+        <a href="#!" class="btn btn__primary" id="load-more">Charger plus</a>
     </div>
 </div>
 
