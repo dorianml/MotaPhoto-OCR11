@@ -107,10 +107,70 @@ ul {
 
 .contactHeader {
   background-image: url(images/Contact_header.svg);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   width: 100%;
-  height: auto;
-  min-height: 200px;
+  height: 100px;
   z-index: 3000;
+}
+
+.wpforms-field-container input {
+  font-family: inherit;
+  border: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: #a9a9a9;
+  font-size: 1.1em;
+  margin-top: 40px;
+  height: 50px;
+  width: 300px;
+  /* padding: 14px 102px 14px 102px; */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+}
+
+.wpforms-field-container textarea {
+  font-family: inherit;
+  border: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: #a9a9a9;
+  font-size: 1.1em;
+  margin-top: 40px;
+  height:200px ;
+  width: 300px;
+  /* padding: 14px 102px 14px 102px; */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+}
+
+.wpforms-field-container div {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 102px;
+  text-align: center;
+  margin: auto;
+  width: 300px;
+}
+
+.wpforms-field-container label {
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.wpforms-submit-container button {
+display: flex;
+justify-content: center;
+
+width: 300px;
 }
 
 .wpforms-hidden {
@@ -124,8 +184,8 @@ ul {
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  height: 100vh; /* Full height */
+ /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
@@ -133,18 +193,38 @@ ul {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  border: 4px solid #000000;
+  padding-bottom: 50px;
+  width: 600px; /* Could be more or less, depending on screen size */
+}
+
+#wpforms-submit-34 {
+  font-family: inherit;
+  border: none;
+  border-radius: 2px;
+  font-size: 1em;
+  margin-top: 40px;
+  background-color: #bababa;
+  padding: 14px 102px 14px 102px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
+  background-color: white;
+  padding-left: 12px;
+  padding-bottom: 4px;
+  padding-right: 10px;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  height: 44px;
 }
 
 .close:hover,
@@ -162,9 +242,7 @@ ul {
   margin-top: 10%;
   margin-left: 14%;
   margin-right: 14%;
-
 }
-
 
 .SinglePost-LeftGroupContainer h2 {
   font-size: 5em;
@@ -174,10 +252,9 @@ ul {
   width: 50px;
   line-height: 0.9;
   margin-bottom: 32px;
-
 }
 
-.SinglePost-LeftGroupContainer  {
+.SinglePost-LeftGroupContainer {
   text-transform: uppercase;
   align-self: flex-end;
   border-bottom: 2px solid; /* Border at the bottom */
@@ -197,7 +274,6 @@ ul {
   flex-direction: row;
   width: 80%;
   margin-left: 14%;
-
 }
 
 .contactPost {
@@ -209,7 +285,7 @@ ul {
 }
 
 .contactPost h4 {
-font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #contactPostLink {
@@ -223,8 +299,8 @@ font-family: 'Poppins', sans-serif;
 }
 
 .buttonToutesPhotos {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .buttonAllPhoto {
@@ -351,7 +427,6 @@ input {
   padding: 0.5em 2.5em 1em;
 }
 
-
 .morePost,
 .related-posts-grid {
   margin-top: 30px;
@@ -429,7 +504,7 @@ input {
   text-align: center;
 }
 
-.btn__wrapper a{
+.btn__wrapper a {
   font-family: inherit;
 }
 
@@ -449,23 +524,20 @@ input {
   cursor: pointer;
 }
 
-
-
 .filterNav button {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   padding: 0px 12px 0px 12px;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between ;
+  justify-content: space-between;
   /* align-content: center; */
   width: 260px;
   height: 45px;
 }
 
-
-.filterNav ul{
+.filterNav ul {
   margin-top: 20px;
   font-family: Poppins;
   font-size: 12px;
@@ -475,7 +547,7 @@ input {
   width: 260px;
 }
 
-.filterNav li{
+.filterNav li {
   display: flex;
   align-items: center;
   font-family: Poppins;
@@ -488,31 +560,30 @@ input {
   display: none;
 } */
 
-.filterNav li:hover{
+.filterNav li:hover {
   cursor: pointer;
   background: #ee0909;
   color: whitesmoke;
 }
 
-.filterNav a{
+.filterNav a {
   padding-left: 12px;
   width: 260px;
   height: 45px;
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
 }
-
 
 .filterFormat {
   margin-left: 30px;
 }
 
 button {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .filterLink:hover {
-color: white;
+  color: white;
 }
 
 .filterType {
@@ -557,7 +628,7 @@ color: white;
 .open > .x-button-drop-menu {
   display: block;
 }
-.closeFilter{
+.closeFilter {
   display: none;
 }
 
@@ -612,7 +683,7 @@ color: white;
   box-shadow: 1px 1px 2px #e0e0e0;
 }
 
- .x-button2:hover {
+.x-button2:hover {
   cursor: pointer;
   background: #e0e0e0;
 }
