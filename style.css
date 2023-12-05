@@ -53,6 +53,21 @@ ul {
   .headerPhoto  {
     height: 600px;
   }
+  .filterNav {
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 !important;
+  }
+  .galery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 0px 20px 0px 20px !important;
+  }
 }
 
 
