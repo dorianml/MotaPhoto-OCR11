@@ -31,7 +31,7 @@
   }
   
   .hamburger-menu img {
-   margin-top: 50px;
+   margin-top: 60px;
    margin-bottom: 40px;
   }
 
@@ -77,21 +77,20 @@
     visibility: hidden;
     top: 0;
     left: -100%;
-  
-    width: 300px;
+    width: 100vw;
     height: 100%;
-  
+
     margin: 0;
+    margin-top: 90px;
     padding: 80px 0;
   
     list-style: none;
-  
-    background-color: #ECEFF1;
+  background-color: rgb(207, 15, 15);
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
   
     transition-duration: .25s;
   }
-  
+
   .menu__item {
     display: block;
     padding: 12px 24px;
@@ -109,3 +108,26 @@
   .menu__item:hover {
     background-color: #CFD8DC;
   }
+
+  #menu-menu-header-1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-left: 0;
+    padding-top: 260px;
+    line-height: 9em;
+  }
+
+  #menu-menu-header-1 li {
+text-transform:uppercase;
+    display: flex;
+    justify-content: center;
+    font-size: 5em;
+    margin-left: -40px;
+    margin-right: 50px;
+  }
+
+  #menu-menu-header-1 a {
+    color:  #ECEFF1;
+      }
+
