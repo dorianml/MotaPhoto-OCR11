@@ -30,6 +30,11 @@ ul {
 }
 
 /* Media query for mobile devices */
+@media (min-width: 904px) { 
+  .hamburger-menu {
+    display: none;
+  }
+}
 @media (max-width: 904px) {
   .mainNav {
     display: none; /* Hide on mobile devices */
@@ -67,6 +72,24 @@ ul {
     margin-right: auto;
     margin-top: 30px;
     padding: 0px 20px 0px 20px !important;
+  }
+  #menu-menu-footer {
+    display: flex;
+    flex-direction: column !important;
+    /* justify-content: center;
+    /* margin-left: auto; */
+    margin-left:-30px;
+    text-align: center;
+    padding: 0px !important;
+  }
+  .menu-menu-footer-container {
+    display: flex;
+    flex-direction: column !important;
+     /* justify-items: center !important;
+     justify-content: center !important;
+    margin-left: -15px;
+    margin-right: auto; */
+    text-align: center; 
   }
 }
 
