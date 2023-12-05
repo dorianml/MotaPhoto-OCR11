@@ -28,6 +28,34 @@ ul {
   height: 100px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
 }
+
+/* Media query for mobile devices */
+@media (max-width: 904px) {
+  .mainNav {
+    display: none; /* Hide on mobile devices */
+  }
+  html {
+    margin-top: 0;
+  }
+  .bannerTitle img {
+    max-height: 300px;
+  }
+  .bannerTitle {
+    margin: 0;
+    margin-top: -200px;
+    font-size: 3em !important;
+  }
+  .headerPhoto img {
+    width: 100vw;
+    height: 300px;
+    object-fit: cover;
+  }
+  .headerPhoto  {
+    height: 600px;
+  }
+}
+
+
 .mainNav img {
   margin-left: 30px;
   width: 400px;
