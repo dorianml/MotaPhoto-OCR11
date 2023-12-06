@@ -367,14 +367,16 @@ add_action('wp_ajax_nopriv_request_loop_photo_time', 'loop_photo_time');
 
 function enqueue_custom_scripts()
 {
-    wp_enqueue_script('loopPhoto_script', get_template_directory_uri() . '/js/loopPhoto.js', array('jquery'), '1.0.0', true);
-    wp_localize_script('loopPhoto_script', 'loop_photo_js', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_script('loopPhotoFormat_script', get_template_directory_uri() . '/js/loopPhotoFormat.js', array('jquery'), '1.0.0', true);
-    wp_localize_script('loopPhotoFormat_script', 'loop_photo_format_js', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_script('loopPhotoTime_script', get_template_directory_uri() . '/js/loopPhotoTime.js', array('jquery'), '1.0.0', true);
-    wp_localize_script('loopPhotoTime_script', 'loop_photo_time_js', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_script('lightbox_script', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0.0', true);
-    wp_localize_script('lightbox_script', 'lightbox_js', array('ajax_url' => admin_url('admin-ajax.php')));
+    wp_enqueue_script('loopPhoto_script', get_template_directory_uri() . '/js/loopPhoto.js', '1.0.0', true);
+    wp_enqueue_script('initialLoadPhoto_script', get_template_directory_uri() . '/js/initialLoadPhoto.js', '1.0.0', true);
+    wp_enqueue_script('loopPhotoFormat_script', get_template_directory_uri() . '/js/loopPhotoFormat.js', '1.0.0', true);
+    wp_enqueue_script('loopPhotoTime_script', get_template_directory_uri() . '/js/loopPhotoTime.js', '1.0.0', true);
+    wp_enqueue_script('lightbox_script', get_template_directory_uri() . '/js/lightbox.js', '1.0.0', true);
+    wp_enqueue_style('style_css', get_template_directory_uri() . '/style.css', '1.0.0', true);
+    wp_enqueue_style('navMobile_css', get_template_directory_uri() . '/navMobile.css', '1.0.0', true);
+    wp_enqueue_style('lightbox_css', get_template_directory_uri() . '/lightbox.css', '1.0.0', true);
+    wp_enqueue_style('arrowNav_css', get_template_directory_uri() . '/arrowNav.css', '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+

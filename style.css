@@ -29,15 +29,15 @@ ul {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
 }
 
-@media (max-width: 626px) { 
- .filterNav button {
-height: 30px !important;
-width: 180px !important;
- }
+@media (max-width: 626px) {
+  .filterNav button {
+    height: 30px !important;
+    width: 180px !important;
+  }
 }
 
 /* Media query for mobile devices */
-@media (min-width: 904px) { 
+@media (min-width: 904px) {
   .hamburger-menu {
     display: none;
   }
@@ -62,20 +62,20 @@ width: 180px !important;
     height: 300px;
     object-fit: cover;
   }
-  .headerPhoto  {
+  .headerPhoto {
     height: 600px;
   }
   .filterNav {
     justify-content: center;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 0 !important;
-    margin-left: auto!important;
-    margin-right: auto!important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
- .x-split-button3 {
-  margin-left: 0px !important;
- }
+  .x-split-button3 {
+    margin-left: 0px !important;
+  }
 
   .galery {
     display: flex;
@@ -92,26 +92,90 @@ width: 180px !important;
     flex-direction: column !important;
     /* justify-content: center;
     /* margin-left: auto; */
-    margin-left:-30px;
+    margin-left: -30px;
     text-align: center;
     padding: 0px !important;
   }
   .menu-menu-footer-container {
     display: flex;
     flex-direction: column !important;
-     /* justify-items: center !important;
+    /* justify-items: center !important;
      justify-content: center !important;
     margin-left: -15px;
     margin-right: auto; */
-    text-align: center; 
+    text-align: center;
   }
 }
 @media (max-width: 1100px) {
   .filterNav button {
     height: 30px !important;
     width: 180px !important;
-     }
+  }
 }
+@media (max-width: 1180px) {
+  .singlePostContainer {
+    flex-direction: column-reverse !important;
+  }
+  .singlePostContainer img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  .SinglePost-LeftGroupContainer {
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 570px) {
+  .bottomPostBarLeft {
+    margin-left: 60px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .contactPost {
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start;
+    align-items: start !important;
+  }
+  .contactPost h4 {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .bottomPostBarRight {
+    visibility: collapse;
+    display: none !important;
+    width: 0px;
+  }
+  #contactPostLink {
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Center text within the flex container */
+  }
+  .grid-related-item {
+    margin: 20px 20px 20px 10px !important;
+    margin-bottom: 4px !important;
+    max-height: 400px;
+  }
+  .related-posts-grid {
+    display: flex;
+  }
+  .related-posts-grid img {
+    max-height: 400px;
+  }
+  .bottomPostBar {
+    border-bottom: 2px solid black;
+    padding-bottom: 20px; /* You can replace 'black' with your desired border color */
+    width: 100vw; /* Ensure the element takes up 100% of the viewport width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+  }
 
 
 .mainNav img {
@@ -230,7 +294,7 @@ width: 180px !important;
   border-color: #a9a9a9;
   font-size: 1.1em;
   margin-top: 40px;
-  height:200px ;
+  height: 200px;
   width: 300px;
   /* padding: 14px 102px 14px 102px; */
   text-align: center;
@@ -251,17 +315,17 @@ width: 180px !important;
 
 .wpforms-field-container label {
   font-size: 1em;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   text-align: start;
 }
 
 .wpforms-submit-container button {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 
-width: 300px;
+  width: 300px;
 }
 
 .wpforms-hidden {
@@ -276,7 +340,7 @@ width: 300px;
   top: 0;
   width: 100%; /* Full width */
   height: 100vh; /* Full height */
- /* Enable scroll if needed */
+  /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
@@ -433,11 +497,11 @@ width: 300px;
 
 .nav-previous a {
   color: transparent;
-margin-top: -20px;
+  margin-top: -20px;
 }
 .nav-next a {
   color: transparent;
-margin-top: -20px;
+  margin-top: -20px;
 }
 
 .navigationButton {
@@ -1027,8 +1091,6 @@ div.contact-elements p.left {
   color: #4f6fad;
   margin: 0 0 0 0.5em;
 }
-
-
 
 @media only screen and (max-width: 900px) {
   .div.contact-elements p.pull-right {
