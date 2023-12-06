@@ -70,8 +70,9 @@ class Lightbox {
       dom.classList.add("lightbox");
       dom.innerHTML = `<div class="lightbox">
               <button class="lightbox__close"></button>
-              <a class="lightbox__prev">Précédent </a>
-              <a class="lightbox__next">Suivant</a>
+              <a class="lightbox__prev svgNavLeft">Précédent</a>
+              <a class="lightbox__next svgNavRight">Suivant</a>
+              <div class="lightbox__box">
               <div class="lightbox__container">
                 <div class="lightbox__loader">
                   <img src="${url}" alt="">
@@ -80,6 +81,7 @@ class Lightbox {
               <div class="infosPhoto">
                 <p>${category}</p>
                 <p>${reference}</p>
+              </div>
               </div>
             </div>`;
       dom

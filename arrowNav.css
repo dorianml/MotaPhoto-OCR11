@@ -1,0 +1,35 @@
+.lightbox__prev::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    margin-left: -100px;
+    width: 80px;
+    height: 20px;
+    background: url(https://assets.codepen.io/162656/long-arrow.svg) no-repeat -40px 0 / contain;
+    transition: background-position 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .lightbox__prev:hover::before {
+    background-position: 0;
+}
+  
+
+.lightbox__next::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    margin-right: -100px;
+    width: 80px;
+    height: 20px;
+    background: url(https://assets.codepen.io/162656/long-arrow.svg) no-repeat -40px 0 / contain;
+    transition: background-position 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
+  
+  .lightbox__next:hover::after {
+    background-position: 0;
+  }
+  
