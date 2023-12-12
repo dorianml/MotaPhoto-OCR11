@@ -74,7 +74,7 @@ get_header();
 	<div class="bottomPostBarLeft">
 		<div class="contactPost">
 			<h4>Cette photo vous interesse ?</h4>
-			<a id="contactPostLink" class="menu-item-33" href="#"> Contact </a>
+			<button id="contactPostLink" class="menu-item-33" href="#"> Contact </button>
 		</div>
 	</div>
 	<div class="bottomPostBarRight">
@@ -82,13 +82,14 @@ get_header();
 			<div class="grid-item" id="nextPostPreview">
 				<?php
 				$next_post = get_next_post();
+				$previous_post = get_previous_post();
 
-				if ($next_post) {
-					// Display the thumbnail of the next post
-					echo '<a class="nextPostPreview" href="' . esc_url(get_permalink($next_post)) . '">';
-					echo get_the_post_thumbnail($next_post, 'large');
-					echo '</a>';
-				}
+				// if ($next_post) {
+				// 	// Display the thumbnail of the next post
+				// 	echo '<a class="nextPostPreview" href="' . esc_url(get_permalink($next_post)) . '">';
+				// 	echo '<div class="navigationButton">' . get_the_post_thumbnail($next_post, 'large') . '</div>' ; 
+				// 	echo '</a>';
+				// }
 				?>
 			</div>
 			<div class="navigationButton">
@@ -101,6 +102,10 @@ get_header();
 	</div>
 </div>
 <div class="relatedPost">
+
+<h2 class=" relatedPostTitle">
+VOUS AIMEREZ AUSSI
+</h2>
 
 	<?php
 	$current_post_id = get_the_ID();

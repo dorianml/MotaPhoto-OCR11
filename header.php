@@ -27,10 +27,7 @@
                     'menu_class' => 'main-menu',
                 )); ?>
             </div>
-            <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <?php get_template_part('template-parts/modalContact') ?>
-            </div>
+           
         </nav>
         <?php get_template_part('template-parts/navMobile') ?>
     </header>
