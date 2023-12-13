@@ -53,6 +53,25 @@ ul {
   }
 }
 @media only screen and (max-width: 904px) {
+  .contactPost {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: auto !important;
+  }
+  .contactPost h4{
+   text-align: center;
+   justify-content: center !important;
+  }
+  .bottomPostBar {
+    margin-top: 0 !important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bottomPostBarLeft {
+    margin-left: 0 !important;
+    
+  }
   .mainNav {
     display: none; /* Hide on mobile devices */
   }
@@ -138,7 +157,7 @@ ul {
 
 @media only screen and (max-width: 590px) {
   .bottomPostBarLeft {
-    margin-left: 40px !important;
+    /* margin-left: 40px !important; */
     width: 100%;
     display: flex;
     flex-direction: column !important;
@@ -151,15 +170,15 @@ ul {
   }
 
   .contactPost {
-    width: 100%;
     display: flex;
     flex-direction: column !important;
     justify-content: center;
     align-items: start !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .contactPost h4 {
-    display: flex;
-    justify-content: flex-start;
+   text-align: center;
   }
   .bottomPostBarRight {
     visibility: collapse;
@@ -301,7 +320,7 @@ ul {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -100%);
 }
