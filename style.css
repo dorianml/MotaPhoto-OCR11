@@ -829,6 +829,9 @@ input {
   border-radius: 0px 0px 10px 10px;
   /* align-content: center; */
   width: 260px;
+  @media (max-width: 767px) {
+    max-width: 180px;
+  }
 }
 
 .filterNav li {
@@ -921,6 +924,7 @@ button {
 .closeFilter {
   display: none;
 }
+
 
 .x-button-drop-menu {
   position: absolute;

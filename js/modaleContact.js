@@ -1,6 +1,16 @@
 var modal = document.getElementById('myModal');
 var btn = document.getElementById("menu-item-33");
 var btnContact = document.getElementById("contactPostLink");
+
+var contactButtons = document.getElementsByClassName("menu-item-33");
+for (var i = 0; i < contactButtons.length; i++) {
+  contactButtons[i].addEventListener("click", function (e) {
+    console.log("CONTACT CLICKED");
+    openModal();
+  });
+}
+
+
 var span = document.getElementById('closeModal');
 
 function openModal() {

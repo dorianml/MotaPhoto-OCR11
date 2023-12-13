@@ -20,6 +20,7 @@
 
 
   <script src="<?php echo get_template_directory_uri(); ?>/js/modaleContact.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/navMobile.js"></script>
   <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhoto.js"></script> 
   <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhotoFormat.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhotoTime.js"></script>
