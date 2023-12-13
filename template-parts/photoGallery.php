@@ -2,8 +2,7 @@
 
 <!-- /* HERE COME THE AJAX REQUEST
 See function.php 'initialLoadPhoto
-+ See initiamlLoadPhoto.js
++ See initialLoadPhoto.js
 */ -->
-
 
 </div>

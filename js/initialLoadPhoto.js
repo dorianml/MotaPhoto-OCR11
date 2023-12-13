@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!response.ok) {
           throw new Error("Network response error.");
         }
-
         return response.json();
       })
       .then(function (data) {
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
 
           // Check if there are more posts to load
-          if (data.posts.length >= 8) {
+          if (data.posts.length >= 6) {
             // If yes, show the "Load more" button
             document.querySelector(".btn__wrapper").style.display = "block";
 
@@ -63,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>`;
   }
 
+  
   // Function to load more posts
   function loadMorePosts() {
     let formData = new FormData();

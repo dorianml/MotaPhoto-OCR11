@@ -29,6 +29,10 @@ ul {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
 }
 
+.mainNav a:hover{
+  font-weight: bold;
+}
+
 .relatedPostTitle {
   text-align: left;
   font-weight: 400;
@@ -168,7 +172,6 @@ ul {
     align-items: center;
     justify-content: center; /* Center horizontally */
     text-align: center; /* Center text within the flex container */
-
   }
   .grid-related-item {
     margin: 20px 20px 20px 10px !important;
@@ -468,13 +471,15 @@ ul {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-top: 60px;
 }
+
+
 .bottomPostBarLeft {
   display: flex;
   flex-direction: row;
   width: 80%;
   margin-left: 14%;
-  margin-top: 30px;
 }
 
 .contactPost {
@@ -500,22 +505,44 @@ ul {
   border: none;
   border-radius: 3px;
 }
+#contactPostLink:hover {
+  background-color: #1a1a1a;
+  color: #d7d7d7;
+}
 
 .grid-item img {
   height: 150px !important;
   width: 150px !important;
 }
 
+
+
 .nextPostPreview img {
-  width: 88px !important;
-  height: 76px !important;
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover;
+  text-align: center;
+
+}
+
+.prevPostPreview img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover;
+  text-align: center;
+}
+.prevPostBlock img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover;
+  text-align: center;
+
 }
 
 .buttonToutesPhotos {
   display: flex;
   flex-direction: row;
 }
-
 
 .buttonAllPhoto {
   margin-top: 40px;
@@ -525,14 +552,25 @@ ul {
   margin-left: auto;
   margin-right: auto;
 }
+.buttonAllPhoto:hover {
+  background-color: #0c0c0c;
+  color: #d5d5d5;
+}
 
 .bottomPostBarRight {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 50%;
+  width: 30%;
   margin-right: 14%;
+  min-height: 180px;
 }
+
+.bottomPostBarRight img {
+  width: 80px;
+  height: 80px;
+}
+
 .bottomPostBarRightContent {
   display: flex;
   flex-direction: column;
@@ -549,6 +587,17 @@ ul {
   margin-bottom: 0px;
 }
 
+.prevPostBlock,
+.nextPostBlock {
+  display: none;
+  min-height: 100px;
+}
+
+.prevPostBlock.show,
+.nextPostBlock.show {
+  display: block;
+}
+
 .nav-previous a {
   color: transparent;
   margin-top: -20px;
@@ -563,6 +612,7 @@ ul {
   justify-content: space-between;
   margin: 0px 0px 0px 0px;
   margin-top: -15px;
+  min-width: 120px ;
 }
 
 .navigationSinglePost a {
@@ -738,6 +788,10 @@ input {
   font-family: inherit;
 }
 
+.btn__wrapper a:hover {
+  color: #f0f0f0;
+  background-color: #1d1d1d;
+}
 /* CSS FOR THE FILTER SPLIT BUTTON 1 */
 
 .filterNav {
@@ -1147,7 +1201,7 @@ div.contact-elements p.left {
 }
 
 @media only screen and (max-width: 900px) {
-  .wpforms-field-container div { 
+  .wpforms-field-container div {
     padding: 15px 10px;
   }
   .div.contact-elements p.pull-right {

@@ -25,6 +25,8 @@ class Lightbox {
                               preview.classList.add("hidden");
                           });
 
+                          console.log("LIGHT!")
+
                           e.preventDefault();
                           const postPermalink = e.target.getAttribute('href');
                           new Lightbox(postPermalink, gallery, category, reference, data.posts);

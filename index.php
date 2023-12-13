@@ -98,9 +98,8 @@ global $wp_query; ?>
         include 'template-parts/photoGallery.php';
         ?>
     </div>
-    <div class="galeryAjax" id="ajax_return">
-    </div>
-    <div class="morePost"></div>
+    <div class="galeryAjax" id="ajax_return"> </div>
+    <!-- <div class="morePost"></div> -->
     <div class="btn__wrapper">
         <a href="#!" class="btn btn__primary" id="load-more">Charger plus</a>
     </div>
