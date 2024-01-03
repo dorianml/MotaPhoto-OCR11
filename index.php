@@ -58,7 +58,7 @@ global $wp_query; ?>
                         <ul class="filter-drop-menu x-button-drop-menu">
                             <?php
                             foreach ($categories as $category) {
-                                echo '<li><a class="ajax-category-link filterLink" data-category-id="' . $category->term_id . '" id="ajax_call">' . $category->name . '</a></li>';
+                                echo '<li><a class="ajax-LOAD-link filterLink" data-category-id="' . $category->term_id . '" id="ajax_call">' . $category->name . '</a></li>';
                             }
                             ?>
                         </ul>
@@ -73,7 +73,7 @@ global $wp_query; ?>
                         <ul class="filter-drop-menu x-button2-drop-menu">
                             <?php
                             foreach ($formats as $format) {
-                                echo '<li><a class="ajax-format-link filterLink" data-format-id="' . $format->term_id . '">' . $format->name . '</a></li>';
+                                echo '<li><a class="ajax-LOAD-link filterLink" data-format-id="' . $format->term_id . '">' . $format->name . '</a></li>';
                             }
                             ?>
                         </ul>
@@ -87,15 +87,16 @@ global $wp_query; ?>
                         </svg></button>
 
                     <ul class="filter-drop-menu x-button3-drop-menu">
-                        <li><a class='ajax_time_link filterLink' data-order="asc">Les plus anciens</a></li>
-                        <li><a class='ajax_time_link filterLink' data-order="desc">Les plus récents</a></li>
+                        <li><a class='ajax-LOAD-link filterLink' data-order="asc">Les plus anciens</a></li>
+                        <li><a class='ajax-LOAD-link filterLink' data-order="desc">Les plus récents</a></li>
                     </ul>
 
                 </span>
             </div>
         </div>
         <?php
-        include 'template-parts/photoGallery.php';
+        // get_template_part('template-parts/photoGallery.php');
+        include ('template-parts/photoGallery.php');
         ?>
     </div>
     <div class="galeryAjax" id="ajax_return"> </div>

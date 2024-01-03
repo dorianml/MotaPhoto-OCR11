@@ -13,20 +13,18 @@
   </nav>
 
   <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <?php get_template_part('template-parts/modalContact') ?>
-            </div>
+    <!-- Modal content -->
+    <?php get_template_part('template-parts/modalContact') ?>
+  </div>
 
-
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/modaleContact.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/navMobile.js"></script>
+   <!--<script src="<?php echo get_template_directory_uri(); ?>/js/navMobile.js"></script> -->
   <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhoto.js"></script> 
   <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhotoFormat.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/loopPhotoTime.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/initialLoadPhoto.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/lightbox.js" type="module" defer></script> -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
       $("#wpforms-34-field_3").val("<?php echo esc_attr(get_field('reference')); ?>");
