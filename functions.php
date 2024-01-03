@@ -30,10 +30,10 @@ function lightbox()
         'posts_per_page' => -1, // Retrieve all posts
         'orderby'        => 'date',
         'order'          => 'DESC',
-        'tax_query'      => array( 
-                'taxonomy' => 'categ',
-                'field'    => 'id',
-                'terms'    => $current_category_id,
+        'tax_query'      => array(
+            'taxonomy' => 'categ',
+            'field'    => 'id',
+            'terms'    => $current_category_id,
         ),
     );
 
@@ -49,7 +49,7 @@ function lightbox()
 
             $categories = get_the_terms(get_the_ID(), 'categ');
             $category_names = !empty($categories) ? wp_list_pluck($categories, 'name') : array();
-            
+
             $post_data = array(
                 'post_index'     => $index,
                 'post_permalink' => get_permalink(),
@@ -80,7 +80,7 @@ add_action('wp_ajax_nopriv_request_lightbox', 'lightbox');
 /* LOAD ALL PHOTO FILTERED*/
 
 function load_photo($offset = 0, $posts_per_page = 8)
-{ 
+{
     session_start(); // Start or resume a session
 
     // Check if the session variables are set
@@ -109,23 +109,41 @@ function load_photo($offset = 0, $posts_per_page = 8)
     $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
 
     // Build the tax query dynamically based on the presence of current_format_id and current_category_id
-    $tax_query = array('relation' => 'AND');
-
     if (!empty($current_format_id)) {
         $tax_query[] = array(
             'taxonomy' => 'format',
-            'field'    => 'id',
+            'field'    => 'term_id',
             'terms'    => $current_format_id,
         );
+    }  if (empty($current_format_id)) {
+        // If current_format_id is not set or empty, include all formats
+        $formats = get_terms('format', array('fields' => 'ids'));
+        if (!empty($formats)) {
+            $tax_query[] = array(
+                'taxonomy' => 'format',
+                'terms'    => $formats,
+            );
+        }
     }
-
+    
     if (!empty($current_category_id)) {
         $tax_query[] = array(
             'taxonomy' => 'categ',
-            'field'    => 'id',
+            'field'    => 'term_id',
             'terms'    => $current_category_id,
         );
+    } if  (empty($current_category_id)) {
+        // If current_category_id is not set or empty, include all categories
+        $categories = get_terms('categ', array('fields' => 'ids'));
+        if (!empty($categories)) {
+            $tax_query[] = array(
+                'taxonomy' => 'categ',
+                'terms'    => $categories,
+            );
+        }
     }
+
+
 
     $args = array(
         'post_type'      => 'photo',
@@ -135,7 +153,7 @@ function load_photo($offset = 0, $posts_per_page = 8)
         'order'          => $order,
         'tax_query'      => $tax_query,
     );
-    
+
     $query = new WP_Query($args);
     $posts = array();
 
@@ -213,12 +231,12 @@ function load_photo_posts($offset = 0, $posts_per_page = 6)
     return $posts;
 }
 
-// function initial_load_photo()
-// {
-//     $response['posts'] = load_photo_posts();
-//     wp_send_json($response);
-//     wp_die();
-// }
+function initial_load_photo()
+{
+    $response['posts'] = load_photo_posts();
+    wp_send_json($response);
+    wp_die();
+}
 
 /* TEST NEW INITIAL LOAD FILTERS COMBINED */
 // function initial_load_photo()
@@ -401,7 +419,7 @@ function enqueue_custom_scripts()
     // wp_enqueue_script('modaleContact_script', get_template_directory_uri() . '/js/modaleContact.js', array('jquery'), '1.0.0', true);
     // wp_enqueue_script('loadMoreIndex_script', get_template_directory_uri() . '/js/loadMoreindex.js', '1.0.0', true);
     wp_enqueue_script('previewOnHover', get_template_directory_uri() . '/js/previewOnHover.js', '1.0.0', true);
-    
+
     wp_enqueue_style('style_css', get_template_directory_uri() . '/style.css', '1.0.0', true);
     wp_enqueue_style('navMobile_css', get_template_directory_uri() . '/navMobile.css', '1.0.0', true);
     wp_enqueue_style('lightbox_css', get_template_directory_uri() . '/lightbox.css', '1.0.0', true);
@@ -409,4 +427,3 @@ function enqueue_custom_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-

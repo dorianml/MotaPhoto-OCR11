@@ -102,43 +102,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   // Function to load more posts
-  function loadMorePosts() {
-    let formData = new FormData();
-    formData.append("action", "request_load_photo");
-    formData.append(
-      "offset",
-      document.querySelectorAll(".grid-item-index").length
-    );
+//   function loadMorePosts() {
+//     let formData = new FormData();
+//     formData.append("action", "request_load_photo");
+//     formData.append(
+//       "offset",
+//       document.querySelectorAll(".grid-item-index").length + 6
+//     );
   
-    fetch("/wp-admin/admin-ajax.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Network response error.");
-        }
+//     fetch("/wp-admin/admin-ajax.php", {
+//       method: "POST",
+//       body: formData,
+//     })
+//       .then(function (response) {
+//         if (!response.ok) {
+//           throw new Error("Network response error.");
+//         }
   
-        return response.json();
-      })
-      .then(function (data) {
-        if (data.posts) {
-          data.posts.forEach(function (post) {
-            document
-              .querySelector("#ajax_return")
-              .insertAdjacentHTML("beforeend", generatePostHTML(post));
-          });
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         if (data.posts) {
+//           data.posts.forEach(function (post) {
+//             document
+//               .querySelector("#ajax_return")
+//               .insertAdjacentHTML("beforeend", generatePostHTML(post));
+//           });
   
-          // If no more posts to load, hide the "Load more" button
-          if (data.posts.length < 8) {
-            document.querySelector(".btn__wrapper").style.display = "none";
-          }
-        } else {
-          console.error("No more posts found.");
-        }
-      })
-      .catch(function (error) {
-        console.error("There was a problem with the fetch operation: ", error);
-      });
-  }
+//           // If no more posts to load, hide the "Load more" button
+//           if (data.posts.length < 8) {
+//             document.querySelector(".btn__wrapper").style.display = "none";
+//           }
+//         } else {
+//           console.error("No more posts found.");
+//         }
+//       })
+//       .catch(function (error) {
+//         console.error("There was a problem with the fetch operation: ", error);
+//       });
+//   }
   
