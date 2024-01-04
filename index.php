@@ -96,7 +96,8 @@ global $wp_query; ?>
         </div>
         <?php
         // get_template_part('template-parts/photoGallery.php');
-        include ('template-parts/photoGallery.php');
+        get_template_part('template-parts/photoGallery');
+        // include ('template-parts/photoGallery.php');
         ?>
     </div>
     <div class="galeryAjax" id="ajax_return"> </div>

@@ -6,7 +6,7 @@ $(function () {
   $("button.x-button-drop").on("click", function () {
     splitBtn.addClass("open");
     /* DISPLAY THE SELECTED CAT */
-    $(".ajax-category-link").off("click").on("click", function () {
+    $(".ajax-LOAD-link").off("click").on("click", function () {
       const categoryName = $(this).text().toUpperCase();
       $("button.x-button-drop").text(categoryName);
     });
@@ -27,7 +27,7 @@ $(function () {
   $("button.x-button2-drop").on("click", function () {
     splitBtn2.addClass("open");
     /* DISPLAY THE SELECTED FORMAT */
-    $(".ajax-format-link").off("click").on("click", function () {
+    $(".ajax-LOAD-link").off("click").on("click", function () {
       const formatName = $(this).text().toUpperCase();
       $("button.x-button2-drop").text(formatName);
     });
@@ -51,7 +51,7 @@ $(function () {
     splitBtn3.addClass("open");
 
     // Remove previous click event handlers
-    $(".ajax-time-link").off("click").on("click", function () {
+    $(".ajax-LOAD-link").off("click").on("click", function () {
       const dateName = $(this).text().toUpperCase();
       console.log(dateName);
       $("button.x-button3-drop").text(dateName);
